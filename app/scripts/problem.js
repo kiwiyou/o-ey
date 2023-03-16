@@ -12,12 +12,14 @@ const HEADLINE = {
     input: '입력',
     output: '출력',
     hint: '힌트',
+    limit: '제한',
   },
   English: {
     description: 'Statement',
     input: 'Input',
     output: 'Output',
     hint: 'Hint',
+    limit: 'Constraints',
   },
 };
 
