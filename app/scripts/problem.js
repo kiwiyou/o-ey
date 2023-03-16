@@ -20,15 +20,13 @@ const HEADLINE = {
   },
 };
 
-let i = setInterval(() => {
-  if (window.MathJax !== undefined) {
-    clearInterval(i);
-    console.log('ok');
-    init();
-  }
-}, 100);
+init();
 
 function init() {
+  const typeset = document.createElement('button');
+  typeset.setAttribute('onclick', 'MathJax.typeset();');
+  typeset.style['display'] = 'hidden';
+  document.body.appendChild(typeset);
   const runtime = (global.browser || global.chrome).runtime;
   const id = +location.pathname.split('/')[2];
   runtime.sendMessage({ query: 'getJson', url: '/index' }, (index) => {
@@ -82,7 +80,7 @@ function init() {
           li.addEventListener('click', () => {
             langLabel.textContent = labelText;
             applyBOJTranslation(bojTranslations[lang], HEADLINE[lang]);
-            window.MathJax.typeset();
+            typeset.click();
           });
         } else {
           li.addEventListener('click', () => {
@@ -91,7 +89,7 @@ function init() {
               { query: 'getJson', url: `/src/${id}/${translation}.json` },
               (tr) => {
                 applyTranslation(tr);
-                window.MathJax.typeset();
+                typeset.click();
               }
             );
           });
