@@ -18,7 +18,7 @@
     {
       "matches": ["https://www.acmicpc.net/problem/*"],
       "js": ["scripts/problem.js"],
-      "run_at": "document_idle",
+      "run_at": "document_end",
       "all_frames": false
     }
   ]
