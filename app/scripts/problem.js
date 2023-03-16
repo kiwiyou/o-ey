@@ -95,7 +95,7 @@ function applyTranslation(lang) {
   for (const key in lang) {
     if (lang[key].trim().length > 0) {
       if (key === 'title') {
-        const title = document.getElementById('title');
+        const title = document.getElementById('problem_title');
         title.textContent = lang['title'];
       } else {
         const element = document.getElementById(key);
