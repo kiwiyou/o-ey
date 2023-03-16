@@ -1,0 +1,13 @@
+{
+  "name": "o-ey",
+  "version": "0.0.1",
+  "description": "A user translation viewer for BOJ",
+  "scripts": {
+    "dev": "webextension-toolbox dev",
+    "build": "webextension-toolbox build"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4",
+    "webextension-toolbox": "latest"
+  }
+}
