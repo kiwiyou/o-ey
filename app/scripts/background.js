@@ -1,7 +1,8 @@
 const REPO =
   'https://raw.githubusercontent.com/kiwiyou/boj-user-translation/main';
 
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+const runtime = (global.browser || global.chrome).runtime;
+runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.query === 'getJson') {
     const url = `${REPO}` + request.url;
     fetch(url)

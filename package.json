@@ -7,7 +7,8 @@
     "build": "webextension-toolbox build"
   },
   "devDependencies": {
-    "prettier": "^2.8.4",
-    "webextension-toolbox": "latest"
+    "@webextension-toolbox/webextension-toolbox": "^6.0.0",
+    "babel-loader": "^9.1.2",
+    "prettier": "^2.8.4"
   }
 }

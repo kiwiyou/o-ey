@@ -20,8 +20,9 @@ const HEADLINE = {
   },
 };
 
+const runtime = (global.browser || global.chrome).runtime;
 const id = +location.pathname.split('/')[2];
-browser.runtime.sendMessage({ query: 'getJson', url: '/index' }, (index) => {
+runtime.sendMessage({ query: 'getJson', url: '/index' }, (index) => {
   let bojTranslations = {};
   let translations = index[id];
   if (translations !== undefined && translations.length > 0) {
@@ -76,7 +77,7 @@ browser.runtime.sendMessage({ query: 'getJson', url: '/index' }, (index) => {
       } else {
         li.addEventListener('click', () => {
           langLabel.textContent = labelText;
-          browser.runtime.sendMessage(
+          runtime.sendMessage(
             { query: 'getJson', url: `/src/${id}/${translation}.html` },
             (tr) => {
               applyTranslation(tr);

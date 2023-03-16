@@ -2,15 +2,17 @@
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDescription__",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "manifest_version": 2,
+  "__chrome|edge__manifest_version": 3,
   "default_locale": "en",
   "icons": {
     "16": "images/icon-16.png",
     "128": "images/icon-128.png"
   },
   "background": {
-    "scripts": ["scripts/background.js"]
+    "__firefox|opera|edge|safari__scripts": ["scripts/background.js"],
+    "__chrome|edge__service_worker": "scripts/background.js"
   },
   "content_scripts": [
     {
