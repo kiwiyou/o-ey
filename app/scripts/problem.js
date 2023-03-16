@@ -73,6 +73,7 @@ runtime.sendMessage({ query: 'getJson', url: '/index' }, (index) => {
         li.addEventListener('click', () => {
           langLabel.textContent = labelText;
           applyBOJTranslation(bojTranslations[lang], HEADLINE[lang]);
+          MathJax.typeset();
         });
       } else {
         li.addEventListener('click', () => {
@@ -81,6 +82,7 @@ runtime.sendMessage({ query: 'getJson', url: '/index' }, (index) => {
             { query: 'getJson', url: `/src/${id}/${translation}.html` },
             (tr) => {
               applyTranslation(tr);
+              MathJax.typeset();
             }
           );
         });
