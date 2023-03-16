@@ -10,6 +10,16 @@
     "16": "images/icon-16.png",
     "128": "images/icon-128.png"
   },
+  "__chrome|edge__action": {
+    "browser_style": true,
+    "default_area": "navbar",
+    "default_popup": "index.html"
+  },
+  "__firefox|opera|edge|safari__browser_action": {
+    "browser_style": true,
+    "default_area": "navbar",
+    "default_popup": "index.html"
+  },
   "background": {
     "__firefox|opera|edge|safari__scripts": ["scripts/background.js"],
     "__chrome|edge__service_worker": "scripts/background.js"
@@ -21,5 +31,6 @@
       "run_at": "document_end",
       "all_frames": false
     }
-  ]
+  ],
+  "permissions": ["storage"]
 }

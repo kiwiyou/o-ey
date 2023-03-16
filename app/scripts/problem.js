@@ -29,7 +29,7 @@ function init() {
   document.body.appendChild(typeset);
   const runtime = (global.browser || global.chrome).runtime;
   const id = +location.pathname.split('/')[2];
-  runtime.sendMessage({ query: 'getJson', url: '/index' }, (index) => {
+  runtime.sendMessage({ query: 'getIndex' }, (index) => {
     let bojTranslations = {};
     let translations = index[id];
     if (translations !== undefined && translations.length > 0) {
@@ -86,7 +86,7 @@ function init() {
           li.addEventListener('click', () => {
             langLabel.textContent = labelText;
             runtime.sendMessage(
-              { query: 'getJson', url: `/src/${id}/${translation}.json` },
+              { query: 'getJson', path: `/src/${id}/${translation}.json` },
               (tr) => {
                 applyTranslation(tr);
                 typeset.click();
