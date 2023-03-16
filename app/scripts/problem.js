@@ -3,6 +3,7 @@ const LANG_NAME = {
   ko_KR: '한국어',
   English: 'English',
   ja_JP: '日本語',
+  Original: '원문/Original',
 };
 
 const HEADLINE = {
@@ -47,6 +48,17 @@ function init() {
       let selectButton = document.getElementById('lang-select-button');
       if (selectButton) {
         selectButton.remove();
+      } else {
+        const original = {};
+        original.title = document.getElementById('problem_title').textContent;
+        Array.prototype.forEach.call(
+          document.getElementsByClassName('problem-section'),
+          (section) => {
+            original[section.getAttribute('id')] = section.innerHTML;
+          }
+        );
+        bojTranslations['Original'] = original;
+        translations = ['Original-baekjoon', ...translations];
       }
       const buttonGroup = document.querySelector('.problem-button');
       selectButton = document.createElement('button');
@@ -79,7 +91,11 @@ function init() {
         if (author === 'baekjoon') {
           li.addEventListener('click', () => {
             langLabel.textContent = labelText;
-            applyBOJTranslation(bojTranslations[lang], HEADLINE[lang]);
+            if (lang === 'Original') {
+              applyTranslation(bojTranslations[lang]);
+            } else {
+              applyBOJTranslation(bojTranslations[lang], HEADLINE[lang]);
+            }
             typeset.click();
           });
         } else {
