@@ -38,7 +38,6 @@ function init() {
   }
   const id = +location.pathname.split('/')[2];
   ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
-    tags[tags.length - 1].after(globe);
     let bojTranslations = {};
     let translations = index[id];
     if (translations !== undefined && translations.length > 0) {
@@ -47,6 +46,7 @@ function init() {
       globe.classList.add('problem-label');
       globe.classList.add('problem-label-pac');
       globe.append('User Translated');
+      tags[tags.length - 1].after(globe);
       const langBase64 = document.getElementById('problem-lang-base64');
       if (langBase64) {
         for (const lang of JSON.parse(atob(langBase64.textContent))) {
