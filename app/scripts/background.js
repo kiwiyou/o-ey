@@ -1,10 +1,14 @@
 const ext = global.browser || global.chrome;
 
 ext.runtime.onInstalled.addListener(() => {
-  ext.storage.local.set({
-    'tr-repos': [
-      'https://raw.githubusercontent.com/kiwiyou/boj-user-translation/main',
-    ],
+  ext.storage.local.get(['tr-repos'], (result) => {
+    if (!('tr-repos' in result)) {
+      ext.storage.local.set({
+        'tr-repos': [
+          'https://raw.githubusercontent.com/kiwiyou/boj-user-translation/main',
+        ],
+      });
+    }
   });
 });
 

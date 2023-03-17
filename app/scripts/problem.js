@@ -1,3 +1,5 @@
+const ext = global.browser || global.chrome;
+
 const LANG_NAME = {
   Korean: '한국어',
   ko_KR: '한국어',
@@ -30,9 +32,18 @@ function init() {
   typeset.setAttribute('onclick', 'MathJax.typeset();');
   typeset.style['display'] = 'hidden';
   document.body.appendChild(typeset);
-  const runtime = (global.browser || global.chrome).runtime;
+  const regex = /\/problem\/(\d+).*/;
+  if (!regex.test(location.pathname)) {
+    return;
+  }
   const id = +location.pathname.split('/')[2];
-  runtime.sendMessage({ query: 'getIndex' }, (index) => {
+  ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
+    const tags = document.getElementsByClassName('problem-label');
+    const globe = document.createElement('span');
+    globe.classList.add('problem-label');
+    globe.classList.add('problem-label-pac');
+    globe.append('User Translated');
+    tags[tags.length - 1].after(globe);
     let bojTranslations = {};
     let translations = index[id];
     if (translations !== undefined && translations.length > 0) {
@@ -69,7 +80,7 @@ function init() {
       selectButton.classList.add('btn', 'btn-default', 'dropdown-toggle');
       selectButton.setAttribute('data-toggle', 'dropdown');
       selectButton.setAttribute('href', '#');
-      selectButton.innerHTML = `<span class="lang-select-text">언어</span>&nbsp;<span class="caret"></span>`;
+      selectButton.innerHTML = `<span class="lang-select-text">Language</span>&nbsp;<span class="caret"></span>`;
       dropdown = document.createElement('ul');
       buttonGroup.appendChild(dropdown);
       dropdown.classList.add('dropdown-menu');
@@ -103,7 +114,7 @@ function init() {
         } else {
           li.addEventListener('click', () => {
             langLabel.textContent = labelText;
-            runtime.sendMessage(
+            ext.runtime.sendMessage(
               { query: 'getJson', path: `/src/${id}/${translation}.json` },
               (tr) => {
                 applyTranslation(tr);

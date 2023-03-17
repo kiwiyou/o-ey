@@ -35,6 +35,16 @@
       "js": ["scripts/problem.js"],
       "run_at": "document_end",
       "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.acmicpc.net/problem/*",
+        "https://www.acmicpc.net/category/*",
+        "https://www.acmicpc.net/problemset*"
+      ],
+      "js": ["scripts/problemList.js"],
+      "run_at": "document_end",
+      "all_frames": false
     }
   ],
   "permissions": ["storage"]
