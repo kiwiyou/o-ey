@@ -1,7 +1,7 @@
 <div align="center">
     <h1>o-ey</h1>
     <a href="https://addons.mozilla.org/en-US/firefox/addon/o-ey/">
-        <img src="https://img.shields.io/badge/Firefox-0.1.0-orange?style=for-the-badge&logo=firefox"/>
+        <img src="https://img.shields.io/badge/Firefox-0.2.0-orange?style=for-the-badge&logo=firefox"/>
     </a>
     <img src="https://img.shields.io/badge/Chrome-Not Yet Available-blue?style=for-the-badge&logo=google-chrome"/>
     <div><b>A user translation viewer for BOJ</b></div>
