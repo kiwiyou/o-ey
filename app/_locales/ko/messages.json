@@ -32,7 +32,7 @@
     "description": "The name for ja_JP language"
   },
   "userTranslated": {
-    "message": "유저 번역",
+    "message": "사용자 번역",
     "description": "Shows that the problem is translated by user"
   }
 }
