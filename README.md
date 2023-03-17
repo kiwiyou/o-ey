@@ -4,26 +4,16 @@ A user translation viewer for BOJ
 
 For the actual translation content, see [kiwiyou/boj-user-translation.](https://github.com/kiwiyou/boj-user-translation)
 
-## Install
+## How to Use
 
-```
-$ npm install
-```
+Install the extension, and you're good to go.
+
+If you have your own translation repository, click the extension button and add your repository to the list.
 
 ## Development
 
 ```
-npm run dev chrome
-npm run dev firefox
-npm run dev opera
-npm run dev edge
-```
-
-## Build
-
-```
-npm run build chrome
-npm run build firefox
-npm run build opera
-npm run build edge
+npm install
+npm run dev <vendor>
+npm run build <vendor>
 ```
