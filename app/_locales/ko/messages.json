@@ -8,31 +8,31 @@
     "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
   },
   "appDescription": {
-    "message": "A user translation viewer for BOJ",
+    "message": "BOJ 유저 번역을 보여줍니다.",
     "description": "The description of the application"
   },
   "language": {
-    "message": "Language",
+    "message": "언어",
     "description": "The text on the language select button"
   },
   "original": {
-    "message": "original",
+    "message": "원문",
     "description": "The text referring to the original language of problem statement"
   },
   "ko_KR": {
-    "message": "Korean",
+    "message": "한국어",
     "description": "The name for ko_KR language"
   },
   "en": {
-    "message": "English",
+    "message": "영어",
     "description": "The name for en_US language"
   },
   "ja_JP": {
-    "message": "Japanese",
+    "message": "일본어",
     "description": "The name for ja_JP language"
   },
   "userTranslated": {
-    "message": "User Translated",
+    "message": "유저 번역",
     "description": "Shows that the problem is translated by user"
   }
 }

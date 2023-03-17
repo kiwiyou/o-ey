@@ -1,11 +1,11 @@
 const ext = global.browser || global.chrome;
 
 const LANG_NAME = {
-  Korean: '한국어',
-  ko_KR: '한국어',
-  English: 'English',
-  ja_JP: '日本語',
-  Original: '원문/Original',
+  Korean: ext.i18n.getMessage('ko_KR'),
+  ko_KR: ext.i18n.getMessage('ko_KR'),
+  English: ext.i18n.getMessage('en'),
+  ja_JP: ext.i18n.getMessage('ja_JP'),
+  Original: ext.i18n.getMessage('original'),
 };
 
 const HEADLINE = {
@@ -45,7 +45,7 @@ function init() {
       const globe = document.createElement('span');
       globe.classList.add('problem-label');
       globe.classList.add('problem-label-pac');
-      globe.append('User Translated');
+      globe.append(ext.i18n.getMessage('userTranslated'));
       tags[tags.length - 1].after(globe);
       const langBase64 = document.getElementById('problem-lang-base64');
       if (langBase64) {
@@ -80,7 +80,9 @@ function init() {
       selectButton.classList.add('btn', 'btn-default', 'dropdown-toggle');
       selectButton.setAttribute('data-toggle', 'dropdown');
       selectButton.setAttribute('href', '#');
-      selectButton.innerHTML = `<span class="lang-select-text">Language</span>&nbsp;<span class="caret"></span>`;
+      selectButton.innerHTML = `<span class="lang-select-text">${ext.i18n.getMessage(
+        'language'
+      )}</span>&nbsp;<span class="caret"></span>`;
       dropdown = document.createElement('ul');
       buttonGroup.appendChild(dropdown);
       dropdown.classList.add('dropdown-menu');

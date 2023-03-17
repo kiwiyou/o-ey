@@ -11,7 +11,7 @@ if (problemIds !== undefined && problemIds.length > 0) {
         cell.appendChild(globe);
         globe.classList.add('problem-label');
         globe.classList.add('problem-label-pac');
-        globe.append('User Translated');
+        globe.append(ext.i18n.getMessage('userTranslated'));
         tags[tags.length - 1].after(globe);
       }
     }
