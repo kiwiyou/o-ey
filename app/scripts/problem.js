@@ -3,7 +3,8 @@ const ext = global.browser || global.chrome;
 const LANG_NAME = {
   Korean: ext.i18n.getMessage('ko_KR'),
   ko_KR: ext.i18n.getMessage('ko_KR'),
-  English: ext.i18n.getMessage('en'),
+  English: ext.i18n.getMessage('en_US'),
+  en_US: ext.i18n.getMessage('en_US'),
   ja_JP: ext.i18n.getMessage('ja_JP'),
   Original: ext.i18n.getMessage('original'),
 };
@@ -46,7 +47,11 @@ function init() {
       globe.classList.add('problem-label');
       globe.classList.add('problem-label-pac');
       globe.append(ext.i18n.getMessage('userTranslated'));
-      tags[tags.length - 1].after(globe);
+      if (tags.length === 0) {
+        document.getElementById('problem_title').after(globe);
+      } else {
+        tags[tags.length - 1].after(globe);
+      }
       const langBase64 = document.getElementById('problem-lang-base64');
       if (langBase64) {
         for (const lang of JSON.parse(atob(langBase64.textContent))) {
@@ -61,17 +66,6 @@ function init() {
       let selectButton = document.getElementById('lang-select-button');
       if (selectButton) {
         selectButton.remove();
-      } else {
-        const original = {};
-        original.title = document.getElementById('problem_title').textContent;
-        Array.prototype.forEach.call(
-          document.getElementsByClassName('problem-section'),
-          (section) => {
-            original[section.getAttribute('id')] = section.innerHTML;
-          }
-        );
-        bojTranslations['Original'] = original;
-        translations = ['Original-baekjoon', ...translations];
       }
       const buttonGroup = document.querySelector('.problem-button');
       selectButton = document.createElement('button');
@@ -87,6 +81,19 @@ function init() {
       buttonGroup.appendChild(dropdown);
       dropdown.classList.add('dropdown-menu');
       const langLabel = selectButton.firstElementChild;
+
+      if (Object.keys(bojTranslations).length === 0) {
+        const original = {};
+        original.title = document.getElementById('problem_title').textContent;
+        Array.prototype.forEach.call(
+          document.getElementsByClassName('problem-section'),
+          (section) => {
+            original[section.getAttribute('id')] = section.innerHTML;
+          }
+        );
+        bojTranslations['Original'] = original;
+        translations = ['Original-baekjoon', ...translations];
+      }
 
       translations.forEach((translation) => {
         const li = document.createElement('li');

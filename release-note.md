@@ -1,5 +1,10 @@
 # Release Note
 
+## 0.2.3
+
+- Fix en_US key
+- Fix error on problems with no labels
+
 ## 0.2.2
 
 - Update popup text
