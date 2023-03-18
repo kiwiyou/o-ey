@@ -1,7 +1,7 @@
 <div align="center">
     <h1>o-ey</h1>
     <a href="https://addons.mozilla.org/en-US/firefox/addon/o-ey/">
-        <img src="https://img.shields.io/badge/Firefox-0.2.1-orange?style=for-the-badge&logo=firefox"/>
+        <img src="https://img.shields.io/badge/Firefox-0.2.3-orange?style=for-the-badge&logo=firefox"/>
     </a>
     <img src="https://img.shields.io/badge/Chrome-Not Yet Available-blue?style=for-the-badge&logo=google-chrome"/>
     <div><b>o</b>j-<b>ey</b>e</div>
@@ -26,3 +26,7 @@ npm install
 npm run dev <vendor>
 npm run build <vendor>
 ```
+
+## Release Note
+
+Please refer to [release-note.md.](https://github.com/kiwiyou/o-ey/blob/main/release-note.md)
