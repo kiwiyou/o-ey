@@ -10,7 +10,11 @@ body {
   align-items: center;
 }
 
+h3 {
+  margin: 0;
+}
+
 #repos {
-    min-width: 200px;
-    height: 300px;
+  min-width: 200px;
+  height: 300px;
 }

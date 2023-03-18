@@ -15,6 +15,8 @@ For the actual translation content, see [kiwiyou/boj-user-translation.](https://
 
 Install the extension, and you're good to go.
 
+If there is any translation for problems, "User Translated" tag will appear on the problem list.
+
 If you have your own translation repository, click the extension button and add your repository to the list.
 
 ## Development
