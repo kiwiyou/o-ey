@@ -12,7 +12,6 @@ if (problemIds !== undefined && problemIds.length > 0) {
         globe.classList.add('problem-label');
         globe.classList.add('problem-label-pac');
         globe.append(ext.i18n.getMessage('userTranslated'));
-        tags[tags.length - 1].after(globe);
       }
     }
   });
