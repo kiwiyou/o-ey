@@ -23,7 +23,7 @@
     "message": "한국어",
     "description": "The name for ko_KR language"
   },
-  "en": {
+  "en_US": {
     "message": "영어",
     "description": "The name for en_US language"
   },
