@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.2.4
+
+- Fix duplicated dropdowns
+
 ## 0.2.3
 
 - Fix en_US key

@@ -65,7 +65,9 @@ function init() {
 
       let selectButton = document.getElementById('lang-select-button');
       if (selectButton) {
+        const dropdownMenu = selectButton.nextElementSibling;
         selectButton.remove();
+        dropdownMenu.remove();
       }
       const buttonGroup = document.querySelector('.problem-button');
       selectButton = document.createElement('button');
