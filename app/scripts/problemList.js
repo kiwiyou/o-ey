@@ -1,12 +1,13 @@
 const ext = global.browser || global.chrome;
 
-const problemIds = document.querySelectorAll('.list_problem_id');
-if (problemIds !== undefined && problemIds.length > 0) {
+const problemLinks = document.querySelectorAll('td > a[href^="/problem"]');
+if (problemLinks !== undefined && problemLinks.length > 0) {
   ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
-    for (const problemId of problemIds) {
-      const id = +problemId.textContent;
+    for (const problemLink of problemLinks) {
+      const href = problemLink.href.split('/');
+      const id = +href[href.length - 1];
       if (id in index) {
-        const cell = problemId.nextElementSibling.nextElementSibling;
+        const cell = problemLink.parentElement.nextElementSibling;
         const globe = document.createElement('span');
         cell.appendChild(globe);
         globe.classList.add('problem-label');
