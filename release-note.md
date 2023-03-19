@@ -3,6 +3,7 @@
 ## 0.2.4
 
 - Fix duplicated dropdowns
+- Fix category problems not showing tags
 
 ## 0.2.3
 
