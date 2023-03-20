@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.2.5
+
+- Fix HTML not properly displayed in title
+
 ## 0.2.4
 
 - Fix duplicated dropdowns

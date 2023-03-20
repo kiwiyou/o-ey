@@ -86,7 +86,7 @@ function init() {
 
       if (Object.keys(bojTranslations).length === 0) {
         const original = {};
-        original.title = document.getElementById('problem_title').textContent;
+        original.title = document.getElementById('problem_title').innerHTML;
         Array.prototype.forEach.call(
           document.getElementsByClassName('problem-section'),
           (section) => {
@@ -143,7 +143,7 @@ function init() {
       if (lang[key].trim().length > 0) {
         if (key === 'title') {
           const title = document.getElementById('problem_title');
-          title.textContent = lang['title'];
+          title.innerHTML = lang['title'];
         } else {
           const element = document.getElementById(key);
           if (element) {
@@ -159,7 +159,7 @@ function init() {
       if (lang[key].trim().length > 0) {
         if (key === 'title') {
           const title = document.getElementById('problem_title');
-          title.textContent = lang['title'];
+          title.innerHTML = lang['title'];
         } else {
           const element = document.getElementById('problem_' + key);
           if (element) {
