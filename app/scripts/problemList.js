@@ -11,7 +11,7 @@ if (problemLinks !== undefined && problemLinks.length > 0) {
         const globe = document.createElement('span');
         cell.appendChild(globe);
         globe.classList.add('problem-label');
-        globe.classList.add('problem-label-pac');
+        globe.classList.add('problem-label-tr');
         globe.append(ext.i18n.getMessage('userTranslated'));
       }
     }

@@ -45,7 +45,7 @@ function init() {
       const tags = document.getElementsByClassName('problem-label');
       const globe = document.createElement('span');
       globe.classList.add('problem-label');
-      globe.classList.add('problem-label-pac');
+      globe.classList.add('problem-label-tr');
       globe.append(ext.i18n.getMessage('userTranslated'));
       if (tags.length === 0) {
         document.getElementById('problem_title').after(globe);

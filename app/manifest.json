@@ -33,6 +33,7 @@
     {
       "matches": ["https://www.acmicpc.net/problem/*"],
       "js": ["scripts/problem.js"],
+      "css": ["styles/problem.css"],
       "run_at": "document_end",
       "all_frames": false
     },
@@ -43,6 +44,7 @@
         "https://www.acmicpc.net/problemset*"
       ],
       "js": ["scripts/problemList.js"],
+      "css": ["styles/problem.css"],
       "run_at": "document_end",
       "all_frames": false
     }

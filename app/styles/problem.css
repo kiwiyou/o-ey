@@ -1,0 +1,9 @@
+.problem-label-tr {
+  background-color: #744ea9;
+}
+
+html[theme='dark'] .problem-label-tr {
+  background-color: transparent;
+  color: #8f6ebc;
+  border: 1px solid #8f6ebc;
+}
