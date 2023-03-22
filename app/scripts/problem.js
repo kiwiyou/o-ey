@@ -79,7 +79,7 @@ function init() {
       selectButton.innerHTML = `<span class="lang-select-text">${ext.i18n.getMessage(
         'language'
       )}</span>&nbsp;<span class="caret"></span>`;
-      dropdown = document.createElement('ul');
+      const dropdown = document.createElement('ul');
       buttonGroup.appendChild(dropdown);
       dropdown.classList.add('dropdown-menu');
       const langLabel = selectButton.firstElementChild;
@@ -126,8 +126,14 @@ function init() {
           li.addEventListener('click', () => {
             langLabel.textContent = labelText;
             ext.runtime.sendMessage(
-              { query: 'getJson', path: `/src/${id}/${translation}.json` },
-              (tr) => {
+              { query: 'getContent', path: `/src/${id}/${translation}.html` },
+              (content) => {
+                const parser = new DOMParser();
+                const dom = parser.parseFromString(content, 'text/html').body;
+                const tr = {};
+                for (const section of dom.children) {
+                  tr[section.id] = section.innerHTML;
+                }
                 applyTranslation(tr);
                 typeset.click();
               }

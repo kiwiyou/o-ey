@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.3.0
+
+- Use HTML format
+
 ## 0.2.5
 
 - Fix HTML not properly displayed in title

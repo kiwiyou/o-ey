@@ -35,12 +35,12 @@ ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
       }));
       sendResponse(index);
     })();
-  } else if (request.query === 'getJson') {
+  } else if (request.query === 'getContent') {
     (async () => {
       const repos = await getRepos();
       const reqs = repos.map(async (repo) => {
         const url = `${repo}${request.path}`;
-        return await (await fetch(url)).json();
+        return await (await fetch(url)).text();
       });
       for (const req of reqs) {
         try {
