@@ -41,6 +41,7 @@
       "matches": [
         "https://www.acmicpc.net/problem/*",
         "https://www.acmicpc.net/category/*",
+        "https://www.acmicpc.net/step/*",
         "https://www.acmicpc.net/problemset*"
       ],
       "js": ["scripts/problemList.js"],
