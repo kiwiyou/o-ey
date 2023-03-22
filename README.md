@@ -1,7 +1,7 @@
 <div align="center">
     <h1>o-ey</h1>
     <a href="https://addons.mozilla.org/en-US/firefox/addon/o-ey/">
-        <img src="https://img.shields.io/badge/Firefox-0.2.4-orange?style=for-the-badge&logo=firefox"/>
+        <img src="https://img.shields.io/badge/Firefox-0.3.0-orange?style=for-the-badge&logo=firefox"/>
     </a>
     <a href="https://chrome.google.com/webstore/detail/o-ey/nhhlodckfmkepfalihpjdcbjecpjhfdf">
         <img src="https://img.shields.io/badge/Chrome-0.2.4-blue?style=for-the-badge&logo=google-chrome"/>
@@ -20,6 +20,12 @@ Install the extension, and you're good to go.
 If there is any translation for problems, "User Translated" tag will appear on the problem list.
 
 If you have your own translation repository, click the extension button and add your repository to the list.
+
+## FAQ
+
+- I can't see translations.
+  - Try upgrading the extension.
+    If the issue persists, change the translation respository from `main` to `v1`.
 
 ## Development
 
