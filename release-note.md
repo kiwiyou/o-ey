@@ -1,5 +1,11 @@
 # Release Note
 
+## 0.3.1
+
+- Update tag color
+- Show tags on `/step/`
+- Fix multirepo not showing correctly
+
 ## 0.3.0
 
 - Use HTML format
