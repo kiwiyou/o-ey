@@ -40,7 +40,11 @@ ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
       const repos = await getRepos();
       const reqs = repos.map(async (repo) => {
         const url = `${repo}${request.path}`;
-        return await (await fetch(url)).text();
+        const res = await fetch(url);
+        if (res.status !== 200) {
+          throw res.status;
+        }
+        return await res.text();
       });
       for (const req of reqs) {
         try {
