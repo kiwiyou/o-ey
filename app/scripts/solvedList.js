@@ -19,6 +19,12 @@ ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
   const tableObserver = new MutationObserver((records) => {
     for (const record of records) {
       for (const row of record.addedNodes) {
+        if (
+          row.getElementsByClassName('problem-label-tr').length >
+          0
+        ) {
+          continue;
+        }
         try {
           appendLabel(row);
         } catch {}

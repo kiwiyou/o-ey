@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.4.1
+
+- Fix duplicated tags on solved.ac
+
 ## 0.4.0
 
 - Support solved.ac
