@@ -1,7 +1,7 @@
 {
   "name": "o-ey",
-  "version": "0.3.1",
-  "description": "A user translation viewer for BOJ",
+  "version": "0.4.0",
+  "description": "A user translation viewer for BOJ and solved.ac",
   "scripts": {
     "dev": "webextension-toolbox dev",
     "build": "webextension-toolbox build"

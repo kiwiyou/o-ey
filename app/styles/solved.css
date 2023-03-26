@@ -1,0 +1,9 @@
+.problem-label-tr {
+  background: transparent;
+  border: 1px solid #8f6ebc;
+  color: #8f6ebc;
+  font-weight: bold;
+  font-size: 0.6em;
+  border-radius: 4px;
+  padding: 2px 4px;
+}

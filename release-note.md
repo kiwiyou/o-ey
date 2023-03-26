@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.4.0
+
+- Support solved.ac
+
 ## 0.3.1
 
 - Update tag color
