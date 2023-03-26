@@ -50,10 +50,7 @@
       "all_frames": false
     },
     {
-      "matches": [
-        "https://solved.ac/problems/*",
-        "https://solved.ac/search?query=*"
-      ],
+      "matches": ["https://solved.ac/*"],
       "js": ["scripts/solvedList.js"],
       "css": ["styles/solved.css"],
       "run_at": "document_idle",
