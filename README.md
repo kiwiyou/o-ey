@@ -1,7 +1,7 @@
 <div align="center">
     <h1>o-ey</h1>
     <a href="https://addons.mozilla.org/en-US/firefox/addon/o-ey/">
-        <img src="https://img.shields.io/badge/Firefox-0.3.1-orange?style=for-the-badge&logo=firefox"/>
+        <img src="https://img.shields.io/badge/Firefox-0.4.0-orange?style=for-the-badge&logo=firefox"/>
     </a>
     <a href="https://chrome.google.com/webstore/detail/o-ey/nhhlodckfmkepfalihpjdcbjecpjhfdf">
         <img src="https://img.shields.io/badge/Chrome-0.3.1-blue?style=for-the-badge&logo=google-chrome"/>
