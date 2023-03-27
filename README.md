@@ -4,7 +4,7 @@
         <img src="https://img.shields.io/badge/Firefox-0.4.1-orange?style=for-the-badge&logo=firefox"/>
     </a>
     <a href="https://chrome.google.com/webstore/detail/o-ey/nhhlodckfmkepfalihpjdcbjecpjhfdf">
-        <img src="https://img.shields.io/badge/Chrome-0.4.0-blue?style=for-the-badge&logo=google-chrome"/>
+        <img src="https://img.shields.io/badge/Chrome-0.4.1-blue?style=for-the-badge&logo=google-chrome"/>
     </a>
     <div><b>o</b>j-<b>ey</b>e</div>
 </div>
