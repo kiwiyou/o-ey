@@ -1,5 +1,10 @@
 # Release Note
 
+## 0.4.2
+
+- Change translator "baekjoon" to "BOJ"
+- Fix translated tag not showing on #1000
+
 ## 0.4.1
 
 - Fix duplicated tags on solved.ac
