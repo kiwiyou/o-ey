@@ -54,7 +54,7 @@ function init() {
           bojTranslations[lang.problem_lang_tcode] = lang;
         }
         translations = [
-          ...Object.keys(bojTranslations).map((name) => name + '-baekjoon'),
+          ...Object.keys(bojTranslations).map((name) => name + '-BOJ'),
           ...translations,
         ];
       }
@@ -94,7 +94,7 @@ function init() {
           }
         );
         bojTranslations['Original'] = original;
-        translations = ['Original-baekjoon', ...translations];
+        translations = ['Original-BOJ', ...translations];
       }
 
       translations.forEach((translation) => {
@@ -112,7 +112,7 @@ function init() {
         const labelText = `${LANG_NAME[lang]} (${author})`;
         label.append(labelText);
 
-        if (author === 'baekjoon') {
+        if (author === 'BOJ') {
           li.addEventListener('click', () => {
             langLabel.textContent = labelText;
             if (lang === 'Original') {
