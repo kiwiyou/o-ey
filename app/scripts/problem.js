@@ -49,8 +49,12 @@ function init() {
       globe.append(ext.i18n.getMessage('userTranslated'));
       header.appendChild(globe);
       const langBase64 = document.getElementById('problem-lang-base64');
+      let defaultLang = null;
       if (langBase64) {
         for (const lang of JSON.parse(atob(langBase64.textContent))) {
+          if (defaultLang === null) {
+            defaultLang = lang.problem_lang_tcode;
+          }
           bojTranslations[lang.problem_lang_tcode] = lang;
         }
         translations = [
@@ -93,11 +97,33 @@ function init() {
             original[section.getAttribute('id')] = section.innerHTML;
           }
         );
+        defaultLang = 'Original';
         bojTranslations['Original'] = original;
         translations = ['Original-BOJ', ...translations];
       }
 
+      if (defaultLang !== null && translations.includes(`${defaultLang}-typo`)) {
+        ext.runtime.sendMessage(
+          { query: 'getContent', path: `/src/${id}/${defaultLang}-typo.html` },
+          (content) => {
+            const parser = new DOMParser();
+            const dom = parser.parseFromString(content, 'text/html').body;
+            const tr = {};
+            for (const section of dom.children) {
+              tr[section.id] = section.innerHTML;
+            }
+            applyTranslation(tr);
+            typeset.click();
+          }
+        );
+      }
+
       translations.forEach((translation) => {
+        const [lang, author] = translation.split('-', 2);
+        if (author === 'typo') {
+          bojTranslations[lang] = null;
+          return;
+        }
         const li = document.createElement('li');
         dropdown.appendChild(li);
         const option = document.createElement('a');
@@ -105,7 +131,6 @@ function init() {
         option.classList.add('language-select-link');
         option.href = '#';
         option.setAttribute('data-language-id', translation);
-        const [lang, author] = translation.split('-', 2);
         const label = document.createElement('span');
         option.appendChild(label);
         label.classList.add('lang-text');
@@ -115,12 +140,27 @@ function init() {
         if (author === 'BOJ') {
           li.addEventListener('click', () => {
             langLabel.textContent = labelText;
-            if (lang === 'Original') {
+            if (bojTranslations[lang] === null) {
+              ext.runtime.sendMessage(
+                { query: 'getContent', path: `/src/${id}/${lang}-typo.html` },
+                (content) => {
+                  const parser = new DOMParser();
+                  const dom = parser.parseFromString(content, 'text/html').body;
+                  const tr = {};
+                  for (const section of dom.children) {
+                    tr[section.id] = section.innerHTML;
+                  }
+                  applyTranslation(tr);
+                  typeset.click();
+                }
+              );
+            } else if (lang === 'Original') {
               applyTranslation(bojTranslations[lang]);
+              typeset.click();
             } else {
               applyBOJTranslation(bojTranslations[lang], HEADLINE[lang]);
+              typeset.click();
             }
-            typeset.click();
           });
         } else {
           li.addEventListener('click', () => {
@@ -169,8 +209,11 @@ function init() {
         } else {
           const element = document.getElementById('problem_' + key);
           if (element) {
-            element.previousElementSibling.firstElementChild.textContent =
-              headline[key] || 'N/A';
+            console.log(element);
+            if (element.previousElementSibling) {
+              element.previousElementSibling.firstElementChild.textContent =
+                headline[key] || 'N/A';
+            }
             element.innerHTML = lang[key];
           }
         }

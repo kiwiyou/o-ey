@@ -1,5 +1,11 @@
 # Release Note
 
+## 0.5.0
+
+- Fix BOJ translations not applied correctly with example descriptions
+
+- Apply typo fix automatically
+
 ## 0.4.2
 
 - Change translator "baekjoon" to "BOJ"
