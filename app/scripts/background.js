@@ -32,7 +32,10 @@ ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
       const index = reqs.reduce((p, c) => {
         for (const key in c) {
           if (p[key]) {
-            p[key] = [...p[key], ...c[key]];
+            p[key] = [
+              ...p[key],
+              ...c[key].filter((tr) => !p[key].includes(tr)),
+            ];
           } else {
             p[key] = c[key];
           }
