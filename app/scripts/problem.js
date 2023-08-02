@@ -43,11 +43,16 @@ function init() {
     let translations = index[id];
     if (translations !== undefined && translations.length > 0) {
       const header = document.getElementById('problem_title').parentElement;
-      const globe = document.createElement('span');
-      globe.classList.add('problem-label');
-      globe.classList.add('problem-label-tr');
-      globe.append(ext.i18n.getMessage('userTranslated'));
-      header.appendChild(globe);
+      if (!translations.every((tr) => tr.endsWith('-typo'))) {
+        const globe = document.createElement('span');
+        globe.classList.add('problem-label');
+        globe.classList.add('problem-label-tr');
+        globe.append(ext.i18n.getMessage('userTranslated'));
+        header.appendChild(globe);
+        while (globe.previousSibling.nodeType === Node.TEXT_NODE) {
+          globe.previousSibling.remove();
+        }
+      }
       const langBase64 = document.getElementById('problem-lang-base64');
       let defaultLang = null;
       if (langBase64) {
@@ -64,9 +69,6 @@ function init() {
       }
       const btnGroup = header.getElementsByClassName('btn-group')[0];
       header.appendChild(btnGroup);
-      while (globe.previousSibling.nodeType === Node.TEXT_NODE) {
-        globe.previousSibling.remove();
-      }
       let selectButton = document.getElementById('lang-select-button');
       if (selectButton) {
         const dropdownMenu = selectButton.nextElementSibling;
@@ -101,8 +103,10 @@ function init() {
         bojTranslations['Original'] = original;
         translations = ['Original-BOJ', ...translations];
       }
-
-      if (defaultLang !== null && translations.includes(`${defaultLang}-typo`)) {
+      if (
+        defaultLang !== null &&
+        translations.includes(`${defaultLang}-typo`)
+      ) {
         ext.runtime.sendMessage(
           { query: 'getContent', path: `/src/${id}/${defaultLang}-typo.html` },
           (content) => {

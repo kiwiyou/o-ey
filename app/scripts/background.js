@@ -29,10 +29,16 @@ ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
           return await (await fetch(url)).json();
         })
       );
-      const index = reqs.reduce((p, c) => ({
-        ...c,
-        ...p,
-      }));
+      const index = reqs.reduce((p, c) => {
+        for (const key in c) {
+          if (p[key]) {
+            p[key] = [...p[key], ...c[key]];
+          } else {
+            p[key] = c[key];
+          }
+        }
+        return p;
+      });
       sendResponse(index);
     })();
   } else if (request.query === 'getContent') {

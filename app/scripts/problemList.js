@@ -6,7 +6,7 @@ if (problemLinks !== undefined && problemLinks.length > 0) {
     for (const problemLink of problemLinks) {
       const href = problemLink.href.split('/');
       const id = +href[href.length - 1];
-      if (id in index) {
+      if (id in index && !index[id].every((tr) => tr.endsWith("-typo"))) {
         const cell = problemLink.parentElement.nextElementSibling;
         const globe = document.createElement('span');
         cell.appendChild(globe);

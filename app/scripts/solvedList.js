@@ -3,7 +3,7 @@ const ext = global.browser || global.chrome;
 ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
   const appendLabel = (row) => {
     const id = row.cells[0].querySelector('a span').textContent;
-    if (!(id in index)) {
+    if (!(id in index) || index[id].every((tr) => tr.endsWith("-typo"))) {
       return;
     }
     let last = row.cells[1].getElementsByTagName('a')[0];

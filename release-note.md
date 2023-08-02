@@ -1,9 +1,13 @@
 # Release Note
 
+## 0.5.1
+
+- Fix typo displayed to be user translation
+- Fix multiple repository not applied correctly
+
 ## 0.5.0
 
 - Fix BOJ translations not applied correctly with example descriptions
-
 - Apply typo fix automatically
 
 ## 0.4.2
