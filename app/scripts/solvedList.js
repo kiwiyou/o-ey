@@ -2,16 +2,18 @@ const ext = global.browser || global.chrome;
 
 ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
   const appendLabel = (row) => {
-    const id = row.cells[0].querySelector('a span').textContent;
-    if (!(id in index) || index[id].every((tr) => tr.endsWith("-typo"))) {
+    const idCell = row.querySelector('a[href]');
+    if (!idCell) {
       return;
     }
-    let last = row.cells[1].getElementsByTagName('a')[0];
-    while (last.nextElementSibling) {
-      last = last.nextElementSibling;
+    const id = idCell.querySelector('span').textContent;
+    console.log(index, id);
+    if (!(id in index) || index[id].every((tr) => tr.endsWith('-typo'))) {
+      return;
     }
+    console.log("Hello");
     const label = document.createElement('span');
-    last.after(label);
+    idCell.appendChild(label);
     label.before('\u00A0');
     label.classList.add('problem-label-tr');
     label.append(ext.i18n.getMessage('userTranslated'));
@@ -19,10 +21,7 @@ ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
   const tableObserver = new MutationObserver((records) => {
     for (const record of records) {
       for (const row of record.addedNodes) {
-        if (
-          row.getElementsByClassName('problem-label-tr').length >
-          0
-        ) {
+        if (row.getElementsByClassName('problem-label-tr').length > 0) {
           continue;
         }
         try {
