@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.5.2
+
+- Fix translated icon not showing in solved.ac
+
 ## 0.5.1
 
 - Fix typo displayed to be user translation
