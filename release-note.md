@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.5.3
+
+- Fix extension window being too small
+
 ## 0.5.2
 
 - Fix translated icon not showing in solved.ac
