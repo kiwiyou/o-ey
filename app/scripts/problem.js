@@ -1,3 +1,4 @@
+import { emoji } from './emoji';
 const ext = global.browser || global.chrome;
 
 const LANG_NAME = {
@@ -44,14 +45,15 @@ function init() {
     if (translations !== undefined && translations.length > 0) {
       const header = document.getElementById('problem_title').parentElement;
       if (!translations.every((tr) => tr.endsWith('-typo'))) {
-        const globe = document.createElement('span');
-        globe.classList.add('problem-label');
-        globe.classList.add('problem-label-tr');
-        globe.append(ext.i18n.getMessage('userTranslated'));
-        header.appendChild(globe);
-        while (globe.previousSibling.nodeType === Node.TEXT_NODE) {
-          globe.previousSibling.remove();
-        }
+        const langs = [...new Set(translations.map((tr) => tr.split('-')[0]))];
+        const label = document.createElement('span');
+        label.classList.add('problem-label');
+        label.classList.add('problem-label-tr');
+        const wrapped = document.createElement('span');
+        wrapped.classList.add('tr-icons');
+        wrapped.append(langs.map((lang) => emoji[lang]).join(''));
+        label.appendChild(wrapped);
+        header.lastElementChild.after(label);
       }
       const langBase64 = document.getElementById('problem-lang-base64');
       let defaultLang = null;

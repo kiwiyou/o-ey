@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.6.0
+
+- Use flag emojis instead of opaque "User Translated" message.
+
 ## 0.5.3
 
 - Fix extension window being too small

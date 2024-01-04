@@ -1,3 +1,4 @@
+import { emoji } from './emoji';
 const ext = global.browser || global.chrome;
 
 ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
@@ -11,12 +12,11 @@ ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
     if (!(id in index) || index[id].every((tr) => tr.endsWith('-typo'))) {
       return;
     }
-    console.log("Hello");
+    const langs = [...new Set(index[id].map((tr) => tr.split('-')[0]))];
     const label = document.createElement('span');
-    idCell.appendChild(label);
-    label.before('\u00A0');
     label.classList.add('problem-label-tr');
-    label.append(ext.i18n.getMessage('userTranslated'));
+    label.append(langs.map((lang) => emoji[lang]).join(''));
+    idCell.append('\u00A0', label);
   };
   const tableObserver = new MutationObserver((records) => {
     for (const record of records) {

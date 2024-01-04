@@ -30,9 +30,5 @@
   "ja_JP": {
     "message": "Japanese",
     "description": "The name for ja_JP language"
-  },
-  "userTranslated": {
-    "message": "User Translated",
-    "description": "Shows that the problem is translated by user"
   }
 }
