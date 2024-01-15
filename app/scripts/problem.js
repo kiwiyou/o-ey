@@ -1,4 +1,4 @@
-import { emoji } from './emoji';
+import { getURL } from './emoji';
 const ext = global.browser || global.chrome;
 
 const LANG_NAME = {
@@ -49,10 +49,13 @@ function init() {
         const label = document.createElement('span');
         label.classList.add('problem-label');
         label.classList.add('problem-label-tr');
-        const wrapped = document.createElement('span');
-        wrapped.classList.add('tr-icons');
-        wrapped.append(langs.map((lang) => emoji[lang]).join(''));
-        label.appendChild(wrapped);
+        label.append(
+          ...langs.map((lang) => {
+            const img = document.createElement('img');
+            img.src = getURL(lang);
+            return img;
+          })
+        );
         header.lastElementChild.after(label);
       }
       const langBase64 = document.getElementById('problem-lang-base64');

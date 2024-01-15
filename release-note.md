@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.6.1
+
+- Change emojis to svg
+
 ## 0.6.0
 
 - Use flag emojis instead of opaque "User Translated" message.

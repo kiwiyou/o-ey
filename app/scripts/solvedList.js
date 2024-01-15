@@ -1,4 +1,4 @@
-import { emoji } from './emoji';
+import { getURL } from './emoji';
 const ext = global.browser || global.chrome;
 
 ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
@@ -15,7 +15,13 @@ ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
     const langs = [...new Set(index[id].map((tr) => tr.split('-')[0]))];
     const label = document.createElement('span');
     label.classList.add('problem-label-tr');
-    label.append(langs.map((lang) => emoji[lang]).join(''));
+    label.append(
+      ...langs.map((lang) => {
+        const img = document.createElement('img');
+        img.src = getURL(lang);
+        return img;
+      })
+    );
     idCell.append('\u00A0', label);
   };
   const tableObserver = new MutationObserver((records) => {

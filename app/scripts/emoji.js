@@ -1,5 +1,5 @@
-export const emoji = {
-  ko_KR: '🇰🇷',
-  en_US: '🇺🇸',
-  ja_JP: '🇯🇵',
-};
+const ext = global.browser || global.chrome;
+
+export function getURL(lang) {
+  return ext.extension.getURL(`/images/${lang}.svg`);
+}

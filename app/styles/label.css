@@ -2,11 +2,9 @@
   background-color: #744ea9;
 }
 
-.tr-icons {
-  font-size: 2em;
-  position: relative;
-  top: 0.15em;
-  line-height: 0;
+.problem-label-tr img {
+  height: 2em;
+  vertical-align: -0.6em;
 }
 
 html[theme='dark'] .problem-label-tr {

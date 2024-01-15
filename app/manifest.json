@@ -2,7 +2,7 @@
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDescription__",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "manifest_version": 2,
   "__chrome|edge__manifest_version": 3,
   "default_locale": "en",
@@ -33,7 +33,7 @@
     {
       "matches": ["https://www.acmicpc.net/problem/*"],
       "js": ["scripts/problem.js"],
-      "css": ["styles/problem.css"],
+      "css": ["styles/label.css"],
       "run_at": "document_end",
       "all_frames": false
     },
@@ -45,14 +45,14 @@
         "https://www.acmicpc.net/problemset*"
       ],
       "js": ["scripts/problemList.js"],
-      "css": ["styles/problem.css"],
+      "css": ["styles/label.css"],
       "run_at": "document_end",
       "all_frames": false
     },
     {
       "matches": ["https://solved.ac/*"],
       "js": ["scripts/solvedList.js"],
-      "css": ["styles/solved.css"],
+      "css": ["styles/label.css"],
       "run_at": "document_idle",
       "all_frames": false
     }
