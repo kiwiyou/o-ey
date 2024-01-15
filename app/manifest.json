@@ -52,7 +52,7 @@
     {
       "matches": ["https://solved.ac/*"],
       "js": ["scripts/solvedList.js"],
-      "css": ["styles/label.css"],
+      "css": ["styles/solved.css"],
       "run_at": "document_idle",
       "all_frames": false
     }
