@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.7.0
+
+- Update to latest solved.ac UI
+
 ## 0.6.1
 
 - Change emojis to svg

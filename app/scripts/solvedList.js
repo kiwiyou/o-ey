@@ -3,12 +3,13 @@ const ext = global.browser || global.chrome;
 
 ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
   const appendLabel = (row) => {
-    const idCell = row.querySelector('a[href]');
+    const idCell = row.querySelector(
+      'a[href^="https://www.acmicpc.net/problem/"]'
+    );
     if (!idCell) {
       return;
     }
-    const id = idCell.querySelector('span').textContent;
-    console.log(index, id);
+    const id = idCell.textContent;
     if (!(id in index) || index[id].every((tr) => tr.endsWith('-typo'))) {
       return;
     }
@@ -22,7 +23,7 @@ ext.runtime.sendMessage({ query: 'getIndex' }, (index) => {
         return img;
       })
     );
-    idCell.append('\u00A0', label);
+    idCell.parentElement.parentElement.append('\u00A0', label);
   };
   const tableObserver = new MutationObserver((records) => {
     for (const record of records) {
