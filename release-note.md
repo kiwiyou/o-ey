@@ -1,5 +1,9 @@
 # Release Note
 
+## 0.7.1
+
+- Fix icon not showing on chromium
+
 ## 0.7.0
 
 - Update to latest solved.ac UI

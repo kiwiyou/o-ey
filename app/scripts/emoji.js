@@ -1,5 +1,5 @@
 const ext = global.browser || global.chrome;
 
 export function getURL(lang) {
-  return ext.extension.getURL(`/images/${lang}.svg`);
+  return ext.runtime.getURL(`/images/${lang}.svg`);
 }
