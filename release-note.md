@@ -1,6 +1,6 @@
 # Release Note
 
-## 0.7.1
+## 0.7.2
 
 - Fix BOJ icon not showing on chromium
 
