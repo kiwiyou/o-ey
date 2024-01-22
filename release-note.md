@@ -2,6 +2,10 @@
 
 ## 0.7.1
 
+- Fix BOJ icon not showing on chromium
+
+## 0.7.1
+
 - Fix icon not showing on chromium
 
 ## 0.7.0

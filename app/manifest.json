@@ -2,7 +2,7 @@
   "name": "__MSG_appName__",
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDescription__",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "manifest_version": 2,
   "__chrome|edge__manifest_version": 3,
   "default_locale": "en",
@@ -62,7 +62,7 @@
   "__chrome|edge__web_accessible_resources": [
     {
       "resources": ["/images/*.svg"],
-      "matches": ["https://solved.ac/*"]
+      "matches": ["https://solved.ac/*", "https://www.acmicpc.net/*"]
     }
   ]
 }
